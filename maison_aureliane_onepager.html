@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maison Auréliane — Bijouterie haut de gamme à Bruxelles | Bagues, colliers, montres de luxe</title>
+<meta name="description" content="Maison Auréliane, bijouterie haut de gamme à Bruxelles. Collections de bijoux d'exception : bagues diamant, colliers, montres, bracelets, boucles, pendentifs. Prenez rendez-vous.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f48e.png">
+<style>
+:root{
+  --bg:#0b0b0d;--bg-soft:#121216;--text:#e9e9ee;--muted:#b6b6c3;--accent:#d4af37;--accent-2:#b8911f;--card:#16161b;--white:#fff;--shadow:0 10px 30px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Lato',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;line-height:1.6}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.container{width:min(1200px,92%);margin:0 auto}
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.25rem;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#111;font-weight:700;letter-spacing:.3px;box-shadow:var(--shadow);transform:translateY(0);transition:transform .25s ease,filter .25s ease}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.25);color:var(--white)}
+.btn.ghost:hover{border-color:var(--white)}
+
+/* Header */
+header.site-header{position:fixed;z-index:50;top:0;left:0;right:0;backdrop-filter:saturate(180%) blur(10px);background:linear-gradient(180deg,rgba(11,11,13,.85),rgba(11,11,13,.45));border-bottom:1px solid rgba(255,255,255,.06)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 0}
+.brand{display:flex;align-items:center;gap:.7rem}
+.brand .logo{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 30% 30%,#fff, #f7e9b2 30%, #b78f1e 65%, #5a4910 100%);box-shadow:0 4px 14px rgba(0,0,0,.35)}
+.brand .name{font-family:'Playfair Display',serif;font-weight:700;font-size:1.15rem;letter-spacing:.5px}
+nav ul{list-style:none;display:flex;gap:1.2rem;margin:0;padding:0}
+nav a{color:var(--muted);font-weight:600}
+nav a:hover, nav a.active{color:var(--white)}
+.header-cta{display:flex;gap:.7rem;align-items:center}
+.mobile-toggle{display:none;background:transparent;border:0;color:var(--white);font-size:1.25rem}
+
+/* Hero */
+.hero{position:relative;min-height:90vh;display:grid;place-items:center;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;filter:contrast(1.05) saturate(1.1)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.65) 35%,rgba(0,0,0,.8))}
+.hero .content{position:relative;text-align:center;padding:7rem 0 4rem;z-index:1}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);line-height:1.15;margin:0 0 1rem}
+.hero p.lead{color:var(--muted);max-width:780px;margin:0 auto 1.8rem;font-size:1.05rem}
+.hero .actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+/* Sections */
+section{padding:4.5rem 0}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:1.2rem;text-align:center}
+.section-sub{color:var(--muted);text-align:center;max-width:720px;margin:0 auto 2.4rem}
+
+/* Collections */
+.grid{display:grid;gap:1.2rem}
+.collections{background:linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%)}
+.grid.cards{grid-template-columns:repeat(12,1fr)}
+.card{grid-column:span 12;background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .25s ease}
+.card:hover{transform:translateY(-4px)}
+.card .img-wrap{position:relative;overflow:hidden}
+.card .img-wrap::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.35) 100%);opacity:.6;transition:opacity .3s ease}
+.card:hover .img-wrap::after{opacity:.75}
+.card img{width:100%;height:260px;object-fit:cover;transition:transform .5s ease}
+.card:hover img{transform:scale(1.04)}
+.card .body{padding:1rem 1rem 1.2rem;display:grid;gap:.35rem}
+.card .title{font-weight:700}
+.card .price{color:var(--accent);font-weight:700}
+.card .more{margin-top:.5rem}
+
+/* A propos */
+.about{position:relative}
+.about::before{content:"";position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1556228453-efd1bb73ff3b?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;filter:blur(2px) saturate(1.05)}
+.about::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.65),rgba(0,0,0,.75))}
+.about .inner{position:relative;z-index:1;display:grid;gap:1.2rem;max-width:900px;margin:0 auto;text-align:center}
+.about p{color:#d5d5df}
+
+/* Avis */
+.reviews{background:linear-gradient(180deg, var(--bg-soft), var(--bg))}
+.slider{position:relative;overflow:hidden}
+.slides{display:flex;transition:transform .6s ease}
+.review{min-width:100%;padding:1.2rem}
+.review .box{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:1.5rem;display:grid;justify-items:center;text-align:center;gap:.7rem;box-shadow:var(--shadow)}
+.avatar{width:64px;height:64px;border-radius:50%;object-fit:cover}
+.stars{color:#ffd66b;letter-spacing:2px}
+.slider .controls{display:flex;justify-content:center;gap:.8rem;margin-top:1rem}
+.control{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;color:var(--white);background:transparent;cursor:pointer;transition:background .2s ease,transform .2s ease}
+.control:hover{background:rgba(255,255,255,.08);transform:translateY(-1px)}
+.dots{display:flex;justify-content:center;gap:.4rem;margin-top:.6rem}
+.dot{width:8px;height:8px;border-radius:50%;background:#5a5a6a;transition:transform .2s ease,background .2s ease}
+.dot.active{background:var(--accent);transform:scale(1.15)}
+
+/* Contact */
+.contact{position:relative}
+.contact .wrap{display:grid;gap:1.2rem}
+.contact-card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.contact-top{position:relative;padding:2rem 1.2rem;background:url('https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat}
+.contact-top::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.7))}
+.contact-top .inner{position:relative;z-index:1;display:grid;gap:.7rem;justify-items:center;text-align:center}
+.contact-grid{display:grid;gap:1rem;padding:1.2rem}
+.form{display:grid;gap:.9rem}
+.input, textarea{width:100%;padding:.9rem 1rem;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:#111219;color:var(--text)}
+textarea{min-height:120px;resize:vertical}
+.info{display:grid;gap:.6rem;color:var(--muted)}
+.info a.tel{color:var(--white);font-weight:800}
+.map{border:0;width:100%;height:260px;border-radius:14px;filter:grayscale(.1) contrast(1.05)}
+
+/* Footer */
+footer{border-top:1px solid rgba(255,255,255,.08);padding:1.4rem 0;color:var(--muted);text-align:center}
+
+/* Responsive grid columns */
+@media(min-width:720px){
+  .card{grid-column:span 6}
+  .contact .wrap{grid-template-columns:1.2fr .8fr}
+}
+@media(min-width:1024px){
+  .card{grid-column:span 4}
+}
+
+/* Fade-in on scroll */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .8s ease, transform .8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* Mobile nav */
+@media(max-width:920px){
+  nav ul{position:fixed;inset:56px 0 auto 0;background:rgba(11,11,13,.96);backdrop-filter:blur(8px);display:none;flex-direction:column;align-items:center;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,.08)}
+  nav ul.open{display:flex}
+  .mobile-toggle{display:inline-flex}
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <div class="brand">
+      <div class="logo"><i class="fa-solid fa-gem" style="color:#111"></i></div>
+      <div class="name">Maison Auréliane</div>
+    </div>
+    <nav>
+      <button class="mobile-toggle" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+      <ul id="menu">
+        <li><a href="#accueil" class="active">Accueil</a></li>
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="#apropos">À propos</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-cta">
+      <a href="tel:+322342323" class="btn ghost"><i class="fa-solid fa-phone"></i> 02 34 23 23</a>
+      <a href="#contact" class="btn"><i class="fa-regular fa-calendar"></i> Prendre rendez-vous</a>
+    </div>
+  </div>
+</header>
+
+<main id="accueil" class="hero">
+  <div class="content container reveal">
+    <h1>Des bijoux d’exception pour des moments uniques à Bruxelles</h1>
+    <p class="lead">Maison Auréliane, bijouterie de luxe à Bruxelles, sélectionne et crée des pièces intemporelles aux finitions irréprochables : diamants étincelants, or 18K, platine. L’excellence à votre mesure.</p>
+    <div class="actions">
+      <a href="#collections" class="btn"><i class="fa-solid fa-gem"></i> Découvrir nos collections</a>
+      <a href="#contact" class="btn ghost"><i class="fa-regular fa-envelope"></i> Nous contacter</a>
+    </div>
+  </div>
+</main>
+
+<section id="collections" class="collections">
+  <div class="container">
+    <h2 class="section-title reveal">Collections sélectives</h2>
+    <p class="section-sub reveal">Chaque création est rigoureusement contrôlée pour garantir un éclat et une tenue d’exception. Découvrez notre sélection signature.</p>
+    <div class="grid cards">
+      <article class="card reveal">
+        <div class="img-wrap">
+          <img src="https://images.unsplash.com/photo-1520962918287-7448c2878f65?q=80&w=1600&auto=format&fit=crop" alt="Bague diamant solitaire" loading="lazy">
+        </div>
+        <div class="body">
+          <div class="title">Bague Solitaire Éclat</div>
+          <div class="price">€4 900</div>
+          <div class="more"><a href="#contact" class="btn">En savoir plus</a></div>
+        </div>
+      </article>
+      <article class="card reveal">
+        <div class="img-wrap">
+          <img src="https://images.unsplash.com/photo-1516637090014-cb1ab0d08fc7?q=80&w=1600&auto=format&fit=crop" alt="Collier or et diamant" loading="lazy">
+        </div>
+        <div class="body">
+          <div class="title">Collier Lueur Royale</div>
+          <div class="price">€3 200</div>
+          <div class="more"><a href="#contact" class="btn">En savoir plus</a></div>
+        </div>
+      </article>
+      <article class="card reveal">
+        <div class="img-wrap">
+          <img src="https://images.unsplash.com/photo-1518544801976-3e89814b1d83?q=80&w=1600&auto=format&fit=crop" alt="Montre de luxe" loading="lazy">
+        </div>
+        <div class="body">
+          <div class="title">Montre Heritage 38</div>
+          <div class="price">€7 900</div>
+          <div class="more"><a href="#contact" class="btn">En savoir plus</a></div>
+        </div>
+      </article>
+      <article class="card reveal">
+        <div class="img-wrap">
+          <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?q=80&w=1600&auto=format&fit=crop" alt="Bracelet or" loading="lazy">
+        </div>
+        <div class="body">
+          <div class="title">Bracelet Aura 18K</div>
+          <div class="price">€1 650</div>
+          <div class="more"><a href="#contact" class="btn">En savoir plus</a></div>
+        </div>
+      </article>
+      <article class="card reveal">
+        <div class="img-wrap">
+          <img src="https://images.unsplash.com/photo-1543294001-f7cd5d7fb516?q=80&w=1600&auto=format&fit=crop" alt="Boucles d'oreilles diamant" loading="lazy">
+        </div>
+        <div class="body">
+          <div class="title">Boucles Étoile Fine</div>
+          <div class="price">€980</div>
+          <div class="more"><a href="#contact" class="btn">En savoir plus</a></div>
+        </div>
+      </article>
+      <article class="card reveal">
+        <div class="img-wrap">
+          <img src="https://images.unsplash.com/photo-1523292562811-8fa7962a78c8?q=80&w=1600&auto=format&fit=crop" alt="Pendentif or" loading="lazy">
+        </div>
+        <div class="body">
+          <div class="title">Pendentif Céleste</div>
+          <div class="price">€1 250</div>
+          <div class="more"><a href="#contact" class="btn">En savoir plus</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="apropos" class="about">
+  <div class="container inner reveal">
+    <h2 class="section-title">À propos de Maison Auréliane</h2>
+    <p>Fondée au cœur de Bruxelles, Maison Auréliane cultive l’art de la joaillerie avec une exigence d’atelier. Chaque pièce est pensée pour sublimer la lumière et durer au-delà des tendances. Nos artisans sertisseurs, polisseurs et horlogers conjuguent savoir-faire traditionnel et technologies de précision pour un résultat irréprochable.</p>
+    <p>Nous sélectionnons des matériaux nobles – or 18 carats, platine, pierres d’exception – et accompagnons nos clients de la conception à l’entretien. Votre histoire inspire nos créations, votre élégance en dévoile l’éclat.</p>
+  </div>
+</section>
+
+<section class="reviews" aria-label="Avis clients">
+  <div class="container">
+    <h2 class="section-title reveal">Ils nous font confiance</h2>
+    <p class="section-sub reveal">Une expérience personnalisée, des finitions parfaites et un service attentif – la signature Auréliane.</p>
+    <div class="slider reveal" id="review-slider">
+      <div class="slides">
+        <div class="review">
+          <div class="box">
+            <img class="avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=300&auto=format&fit=crop" alt="Portrait cliente Sarah">
+            <div class="stars">★★★★★</div>
+            <p>Accompagnement sublime pour ma bague de fiançailles. Éclat incomparable et conseils précieux. Bruxelles a trouvé son écrin.</p>
+            <strong>Sarah</strong>
+          </div>
+        </div>
+        <div class="review">
+          <div class="box">
+            <img class="avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=300&auto=format&fit=crop" alt="Portrait client Julien">
+            <div class="stars">★★★★★</div>
+            <p>Montre Heritage ajustée à la perfection. Service discret, professionnel et chaleureux. Une adresse incontournable.</p>
+            <strong>Julien</strong>
+          </div>
+        </div>
+        <div class="review">
+          <div class="box">
+            <img class="avatar" src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=300&auto=format&fit=crop" alt="Portrait cliente Amélie">
+            <div class="stars">★★★★★</div>
+            <p>Collier sur-mesure livré dans les délais, finitions magnifiques. Je recommande à 100% pour un cadeau inoubliable.</p>
+            <strong>Amélie</strong>
+          </div>
+        </div>
+      </div>
+      <div class="controls">
+        <button class="control" aria-label="Précédent" data-prev><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="control" aria-label="Suivant" data-next><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+      <div class="dots" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="contact-card reveal">
+      <div class="contact-top">
+        <div class="inner">
+          <h2 class="section-title" style="margin:0">Contact & Rendez-vous</h2>
+          <p class="section-sub" style="margin:0;color:#e1e1ea">Bruxelles, Belgique</p>
+          <a class="tel btn" href="tel:+322342323"><i class="fa-solid fa-phone"></i> 02 34 23 23</a>
+        </div>
+      </div>
+      <div class="contact-grid">
+        <form class="form" action="#" method="post">
+          <input class="input" type="text" name="name" placeholder="Votre nom" required>
+          <input class="input" type="email" name="email" placeholder="Votre e-mail" required>
+          <textarea name="message" placeholder="Votre message" required></textarea>
+          <button class="btn" type="submit"><i class="fa-regular fa-paper-plane"></i> Envoyer</button>
+        </form>
+        <div class="info">
+          <div><i class="fa-solid fa-location-dot"></i> 12, Galerie Royale, 1000 Bruxelles</div>
+          <div><i class="fa-regular fa-clock"></i> Lundi - Samedi : 10h - 18h30</div>
+          <div><i class="fa-solid fa-envelope"></i> contact@maison-aureliane.com</div>
+          <iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen src="https://www.google.com/maps?q=Galeries%20Royales%20Saint-Hubert%2C%20Bruxelles&output=embed"></iframe>
+          <div style="text-align:center;margin-top:.6rem"><a href="#contact" class="btn"><i class="fa-regular fa-calendar-check"></i> Prenez rendez-vous aujourd’hui !</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © <span id="year"></span> Maison Auréliane — Bijouterie de luxe à Bruxelles. Tous droits réservés.
+  </div>
+</footer>
+
+<script>
+// Mobile menu
+const toggle=document.querySelector('.mobile-toggle');
+const menu=document.getElementById('menu');
+if(toggle){toggle.addEventListener('click',()=>menu.classList.toggle('open'));}
+
+// Active link on scroll
+const sections=[...document.querySelectorAll('main.hero, section')];
+const links=[...document.querySelectorAll('nav a')];
+const setActive=()=>{
+  let fromTop=window.scrollY+120;
+  sections.forEach(sec=>{
+    const id=sec.id||sec.className;
+    if(sec.offsetTop<=fromTop && sec.offsetTop+sec.offsetHeight>fromTop){
+      links.forEach(a=>a.classList.remove('active'));
+      const found=links.find(a=>a.getAttribute('href').includes(id.replace(/ .*/,'')));
+      if(found) found.classList.add('active');
+    }
+  });
+};
+window.addEventListener('scroll',setActive);
+
+// Reveal on scroll
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}})
+},{threshold:0.12});
+[...document.querySelectorAll('.reveal')].forEach(el=>observer.observe(el));
+
+// Reviews slider
+(function(){
+  const slider=document.getElementById('review-slider');
+  if(!slider) return;
+  const track=slider.querySelector('.slides');
+  const slides=[...slider.querySelectorAll('.review')];
+  const prev=slider.querySelector('[data-prev]');
+  const next=slider.querySelector('[data-next]');
+  const dotsWrap=slider.querySelector('.dots');
+  let idx=0,timer;
+  const go=i=>{idx=(i+slides.length)%slides.length;track.style.transform=`translateX(-${idx*100}%)`;[...dotsWrap.children].forEach((d,k)=>d.classList.toggle('active',k===idx));}
+  slides.forEach((_,i)=>{const d=document.createElement('span');d.className='dot'+(i===0?' active':'');d.addEventListener('click',()=>{go(i);reset();});dotsWrap.appendChild(d);});
+  prev.addEventListener('click',()=>{go(idx-1);reset();});
+  next.addEventListener('click',()=>{go(idx+1);reset();});
+  const autoplay=()=>timer=setInterval(()=>go(idx+1),4500);
+  const reset=()=>{clearInterval(timer);autoplay();};
+  autoplay();
+})();
+
+// Smooth anchor close mobile menu
+[...document.querySelectorAll('a[href^="#"]')].forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+
+// Year
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
