@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Belgium Limousine Services — Location VIP, Mariages et Chauffeur à Bruxelles</title>
+  <meta name="description" content="Voitures de mariage, limousines, bus et minibus VIP avec chauffeur à Bruxelles et en Belgique. Demandez votre devis pour un cortège majestueux.">
+  <meta name="theme-color" content="#0b0d12">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Belgium Limousine Services — Location VIP à Bruxelles">
+  <meta property="og:description" content="Limousines, voitures de sport, bus et minibus avec chauffeur. Mariages, événements, transferts aéroport.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.votre-domaine.be/">
+  <meta property="og:image" content="https://www.votre-domaine.be/og-hero.jpg">
+
+  <!-- Preconnects for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Font: Modern, luxury vibe -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b0d12;
+      --bg-soft:#121520;
+      --card:#151927;
+      --text:#e7e9ee;
+      --muted:#aeb4c6;
+      --brand:#c7a15a; /* champagne gold */
+      --brand-2:#7c6a43;
+      --accent:#9cc9ff;
+      --ok:#27c093;
+      --error:#ff6b6b;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 14px;
+      --radius-sm: 10px;
+      --container: 1200px;
+      --g: clamp(16px, 2.2vw, 28px);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      color:var(--text);
+      background: var(--bg);
+      line-height:1.5;
+      overflow-x:hidden;
+    }
+
+    a{color:var(--text); text-decoration:none}
+    .container{width: min(100% - 32px, var(--container)); margin-inline:auto}
+
+    /* Top Bar */
+    .topbar{
+      font-size:14px;
+      color:var(--muted);
+      background:linear-gradient(90deg, #0e111a, #0b0d12);
+      border-bottom:1px solid rgba(255,255,255,0.06);
+    }
+    .topbar .container{
+      display:flex; gap:20px; align-items:center; justify-content:space-between;
+      padding:10px 0;
+    }
+    .topbar .left, .topbar .right{display:flex; align-items:center; gap:16px; flex-wrap:wrap}
+    .badge-contact{color:var(--brand); font-weight:600}
+
+    /* Header/Nav */
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(8px);
+      background: rgba(11,13,18,0.55);
+      border-bottom:1px solid rgba(255,255,255,0.06);
+    }
+    nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+    }
+    .logo{
+      display:flex; align-items:center; gap:12px;
+      font-weight:700; letter-spacing:.5px;
+    }
+    .logo .mark{
+      width:36px; height:36px; border-radius:10px;
+      background: radial-gradient(circle at 30% 30%, #d7b877, #8e7446);
+      box-shadow: var(--shadow);
+    }
+    .nav-links{
+      display:flex; gap:18px; align-items:center; flex-wrap:wrap
+    }
+    .nav-links a{
+      color:var(--muted); padding:8px 10px; border-radius:8px;
+      transition: color .2s, background .2s;
+    }
+    .nav-links a:hover{color:var(--text); background: rgba(255,255,255,0.06)}
+    .btn{
+      background:linear-gradient(180deg, var(--brand), var(--brand-2));
+      color:#0a0c12; font-weight:700; padding:10px 16px; border-radius:10px;
+      box-shadow:0 6px 20px rgba(199,161,90,.25);
+      border:none; cursor:pointer;
+    }
+    .btn.secondary{
+      background:#1b2133; color:var(--text); box-shadow:none; border:1px solid rgba(255,255,255,.08)
+    }
+
+    /* Hero with Parallax */
+    .hero{
+      position:relative; min-height:92vh; display:grid; align-items:center;
+      overflow:hidden; isolation:isolate;
+      background:linear-gradient(180deg, #0b0d12 0%, #0b0d12 30%, #0f1320 100%);
+    }
+    .hero-media{
+      position:absolute; inset:0; z-index:-2; pointer-events:none; overflow:hidden;
+    }
+    .hero-media .layer{
+      position:absolute; inset:-10%; background-position:center; background-size:cover;
+      will-change: transform; transform: translate3d(0,0,0);
+      filter: saturate(1.05) brightness(0.9);
+    }
+    .layer.bg1{ background-image:url('https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?q=80&w=1920&auto=format&fit=crop'); }
+    .layer.bg2{ background-image:url('https://images.unsplash.com/photo-1550355291-bbee04a92027?q=80&w=1920&auto=format&fit=crop'); mix-blend-mode: screen; opacity:.35 }
+    .hero-overlay{
+      position:absolute; inset:0; background: radial-gradient(60% 60% at 70% 30%, rgba(11,13,18,0) 0%, rgba(11,13,18,.4) 60%, rgba(11,13,18,.8) 100%);
+      z-index:-1;
+    }
+
+    .hero .container{padding: clamp(60px, 8vw, 120px) 0}
+    .eyebrow{
+      color:var(--brand); font-weight:700; letter-spacing:1px; text-transform:uppercase; font-size:12px;
+    }
+    .hero h1{
+      font-family: "Playfair Display", serif;
+      font-size: clamp(34px, 4.6vw, 64px);
+      line-height:1.05; margin:10px 0 12px;
+      text-shadow: 0 10px 30px rgba(0,0,0,.5);
+    }
+    .hero p{ max-width: 700px; color:var(--muted); margin: 0 0 22px }
+    .hero-ctas{ display:flex; gap:12px; flex-wrap:wrap }
+
+    /* Scrolly hint */
+    .scroll-hint{
+      position:absolute; bottom:20px; left:50%; transform:translateX(-50%);
+      color:var(--muted); font-size:13px; display:flex; flex-direction:column; align-items:center; gap:8px;
+      opacity:.85;
+    }
+    .mouse{
+      width:22px; height:32px; border:2px solid var(--muted); border-radius:14px; position:relative;
+    }
+    .mouse::after{
+      content:''; width:2px; height:6px; background:var(--muted); position:absolute; top:6px; left:50%; transform:translateX(-50%);
+      border-radius:2px; animation: wheel 1.4s infinite;
+    }
+    @keyframes wheel{
+      0%{transform:translate(-50%,0); opacity:1}
+      100%{transform:translate(-50%,8px); opacity:0}
+    }
+
+    /* Sections */
+    section{ padding: clamp(60px, 8vw, 110px) 0; position:relative }
+    .section-title{
+      font-family: "Playfair Display", serif; font-size: clamp(26px, 3vw, 40px);
+      margin:0 0 10px;
+    }
+    .section-sub{ color:var(--muted); margin:0 0 30px }
+
+    /* Services grid */
+    .cards{
+      display:grid; grid-template-columns: repeat(12, 1fr); gap: var(--g);
+    }
+    .card{
+      grid-column: span 12;
+      background: linear-gradient(180deg, #121625, #0f1322);
+      border:1px solid rgba(255,255,255,.06);
+      border-radius: var(--radius);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      display:flex; flex-direction:column;
+      transform: translateY(30px); opacity:0;
+      transition: transform .8s cubic-bezier(.2,.7,.2,1), opacity .8s;
+    }
+    .card.appear{ transform: translateY(0); opacity:1 }
+    .card-media{
+      aspect-ratio: 16 / 9; background: #0c111a; position:relative; overflow:hidden;
+    }
+    .card-media img{ width:100%; height:100%; object-fit:cover; transform: scale(1.06); transition: transform .8s ease }
+    .card:hover .card-media img{ transform: scale(1.12) }
+    .card-body{ padding: 18px }
+    .chip{ display:inline-block; font-size:12px; color:#0c0f16; background:linear-gradient(180deg, #c7a15a, #7c6a43); padding:6px 10px; border-radius:20px; font-weight:700; }
+    .card h3{ margin:10px 0 6px; font-size:20px }
+    .card p{ margin:0; color:var(--muted) }
+
+    @media (min-width: 680px){
+      .card.span-6{ grid-column: span 6 }
+      .card.span-4{ grid-column: span 4 }
+    }
+
+    /* Parallax section divider */
+    .divider-parallax{
+      height: 46vh; position:relative; overflow:hidden; border-block:1px solid rgba(255,255,255,.06);
+      background: radial-gradient(100% 100% at 70% 20%, rgba(255,255,255,.04), rgba(255,255,255,0) 60%), #0b0d12;
+    }
+    .divider-parallax .bg{
+      position:absolute; inset:-10%; background:url('https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+      filter: brightness(.6) saturate(1.1);
+      will-change: transform;
+      transform: translateY(-10%);
+    }
+    .divider-parallax .veil{
+      position:absolute; inset:0; background: linear-gradient(180deg, rgba(11,13,18,.2), rgba(11,13,18,.8));
+    }
+    .divider-parallax .content{
+      position:relative; height:100%; display:grid; place-items:center; text-align:center; padding:20px;
+    }
+    .divider-parallax h2{
+      font-family: "Playfair Display", serif; font-size: clamp(26px, 3.2vw, 44px);
+      text-shadow: 0 8px 24px rgba(0,0,0,.6);
+    }
+
+    /* Gallery */
+    .gallery{
+      display:grid; grid-template-columns: repeat(12, 1fr); gap: 10px;
+    }
+    .gallery .g{
+      grid-column: span 6; aspect-ratio: 4 / 3; overflow:hidden; border-radius:12px; border:1px solid rgba(255,255,255,.06);
+      transform: translateY(20px); opacity:0; transition: .7s ease;
+    }
+    .gallery .g.appear{ transform: translateY(0); opacity:1 }
+    .gallery img{ width:100%; height:100%; object-fit:cover; filter: contrast(1.05) saturate(1.05) }
+    @media (min-width: 920px){
+      .gallery .g.span-3{ grid-column: span 3 }
+      .gallery .g.span-4{ grid-column: span 4 }
+      .gallery .g.span-5{ grid-column: span 5 }
+    }
+
+    /* Quote / CTA */
+    .cta{
+      display:grid; grid-template-columns: 1.2fr .8fr; gap: var(--g);
+      background: linear-gradient(180deg, #141a2a, #0e1424);
+      border:1px solid rgba(255,255,255,.06);
+      border-radius: var(--radius);
+      padding: clamp(16px, 3vw, 26px);
+      box-shadow: var(--shadow);
+    }
+    .cta-left h3{ margin:6px 0 8px; font-size: clamp(22px, 2.4vw, 28px) }
+    .cta-left p{ color:var(--muted); margin:0 }
+    .cta-right{ display:grid; align-content:center; gap:10px }
+    .form{
+      display:grid; grid-template-columns: 1fr 1fr; gap:10px;
+    }
+    .form .full{ grid-column: 1 / -1 }
+    input, select, textarea{
+      background:#0b0f1b; color:var(--text);
+      border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:10px 12px;
+      outline:none; transition:border .2s, box-shadow .2s;
+    }
+    input:focus, select:focus, textarea:focus{ border-color: var(--accent); box-shadow: 0 0 0 3px rgba(156,201,255,.15) }
+    label{ font-size:12px; color:var(--muted) }
+
+    @media (max-width: 900px){
+      .cta{ grid-template-columns: 1fr; }
+      .form{ grid-template-columns: 1fr }
+    }
+
+    /* Footer */
+    footer{
+      background:#0a0c12; border-top:1px solid rgba(255,255,255,.08);
+    }
+    .footer-grid{
+      display:grid; grid-template-columns: repeat(12, 1fr); gap: var(--g);
+      padding: 40px 0;
+    }
+    .fcol{ grid-column: span 12 }
+    @media (min-width: 740px){
+      .fcol.span-4{ grid-column: span 4 }
+      .fcol.span-3{ grid-column: span 3 }
+    }
+    .foot-small{
+      border-top:1px solid rgba(255,255,255,.06);
+      padding:14px 0; color:var(--muted); font-size:13px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap
+    }
+    .social{ display:flex; gap:10px; flex-wrap:wrap }
+    .social a{ color:var(--muted) }
+    .list{ display:grid; gap:8px }
+    .list a{ color:var(--muted) }
+    .list a:hover{ color:var(--text) }
+
+    /* Sticky Request Quote button */
+    .sticky-cta{
+      position:fixed; right:16px; bottom:16px; z-index:40;
+      display:flex; gap:10px; align-items:center;
+      background:linear-gradient(180deg, var(--brand), var(--brand-2)); color:#0b0d12;
+      padding:12px 16px; border-radius: 999px; font-weight:800; box-shadow: 0 14px 30px rgba(199,161,90,.35);
+    }
+
+    /* Cookie banner */
+    .cookie{
+      position: fixed; left:16px; right:16px; bottom:16px; z-index:60;
+      background:#0e1422; border:1px solid rgba(255,255,255,.08); border-radius:14px; box-shadow: var(--shadow);
+      padding:16px; display:none; gap:14px; align-items:center; justify-content:space-between; flex-wrap:wrap
+    }
+    .cookie p{ margin:0; color:var(--muted); font-size:14px; max-width:700px }
+    .cookie .actions{ display:flex; gap:10px; flex-wrap:wrap }
+
+    /* Reveal on scroll utility */
+    .reveal{ opacity:0; transform: translateY(24px); transition: .8s cubic-bezier(.2,.7,.2,1) }
+    .reveal.appear{ opacity:1; transform: none }
+
+    /* Small helper for accessibility skip link */
+    .skip-link{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden }
+    .skip-link:focus{ position:fixed; left:16px; top:16px; width:auto; height:auto; padding:10px 12px; background:#11172a; border-radius:8px; z-index:70; border:1px solid rgba(255,255,255,.2) }
+  </style>
+</head>
+<body>
+  <a href="#content" class="skip-link">Aller au contenu</a>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container">
+      <div class="left">
+        <span>Engerstraat 76A, 3071 Kortenberg</span>
+        <a href="mailto:info@belgiumlimousineservices.be" class="badge-contact">info@belgiumlimousineservices.be</a>
+        <a href="tel:+3223194557" class="badge-contact">02 319 45 57</a>
+      </div>
+      <div class="right">
+        <a href="#contact" class="btn secondary">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav aria-label="Navigation principale">
+        <a class="logo" href="#hero" aria-label="Accueil">
+          <span class="mark"></span>
+          <span>BELGIUM LIMOUSINE SERVICES</span>
+        </a>
+        <div class="nav-links">
+          <a href="#services">Bus & Minibus</a>
+          <a href="#limousines">Limousines</a>
+          <a href="#mariage">Cortège mariage</a>
+          <a href="#galerie">Galerie</a>
+          <a href="#zones">Zones</a>
+          <a href="#contact" class="btn">Demander un devis</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero with parallax layers -->
+  <section id="hero" class="hero">
+    <div class="hero-media">
+      <div class="layer bg1" data-depth="0.15"></div>
+      <div class="layer bg2" data-depth="-0.05"></div>
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="container" id="content">
+      <div class="eyebrow">Location VIP • Bruxelles</div>
+      <h1>Voitures de mariage et limousines avec chauffeur</h1>
+      <p>Envisagez-vous un mariage majestueux dans la capitale de l’Europe ? Des palais royaux à la Grand‑Place, nos limousines élégantes subliment votre cérémonie et vos déplacements à Bruxelles et partout en Belgique.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn">J’effectue ma demande</a>
+        <a href="#flotte" class="btn secondary">Voir la flotte VIP</a>
+      </div>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <div class="mouse"></div>
+      <span>Faites défiler</span>
+    </div>
+  </section>
+
+  <!-- Services (Limousine Mariage + Categories) -->
+  <section id="services" class="reveal">
+    <div class="container">
+      <h2 class="section-title">Location de limousines à Bruxelles</h2>
+      <p class="section-sub">Que ce soit au Quartier Européen, près de l’Atomium ou au Manneken Pis, chaque coin de Bruxelles mérite un service de limousine de classe.</p>
+
+      <div class="cards">
+        <article class="card span-6">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1549921296-3a6b3d0b0fb2?q=80&w=1600&auto=format&fit=crop" alt="Limousine pour mariage à Bruxelles">
+          </div>
+          <div class="card-body">
+            <span class="chip">Cérémonie au mariage</span>
+            <h3>Mode cortège VIP activé</h3>
+            <p>Donnez une autre allure à votre cérémonie. Des limousines de luxe aux sportives, embrassez le charme historique et le glamour de la ville.</p>
+          </div>
+        </article>
+
+        <article class="card span-6">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=1600&auto=format&fit=crop" alt="Véhicules VIP: berlines, vans, bus">
+          </div>
+          <div class="card-body">
+            <span class="chip">Location à Bruxelles</span>
+            <h3>Nos voitures de mariage préférées</h3>
+            <p>Du Parlement Européen au Cinquantenaire, Belgium Limousine Services est la touche finale de luxe à vos festivités.</p>
+          </div>
+        </article>
+
+        <article class="card span-4">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1527378293588-8b3a08e24345?q=80&w=1600&auto=format&fit=crop" alt="Voitures de sport Bruxelles">
+          </div>
+          <div class="card-body">
+            <span class="chip">g5-23</span>
+            <h3>Voitures de sport Bruxelles</h3>
+            <p>Des machines d’exception pour une arrivée remarquée.</p>
+          </div>
+        </article>
+
+        <article class="card span-4">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=1600&auto=format&fit=crop" alt="Location limousine Bruxelles">
+          </div>
+          <div class="card-body">
+            <span class="chip">85-6</span>
+            <h3>Location limousine Bruxelles</h3>
+            <p>Elegance, confort et service irréprochable.</p>
+          </div>
+        </article>
+
+        <article class="card span-4">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1616763355785-5b08f9e3ea06?q=80&w=1600&auto=format&fit=crop" alt="Location mini bus Bruxelles">
+          </div>
+          <div class="card-body">
+            <span class="chip">Mini Bus mariage</span>
+            <h3>Location mini bus Bruxelles</h3>
+            <p>Transferts de groupes, roadshows, événements et délégations.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Parallax divider -->
+  <div class="divider-parallax" aria-hidden="true">
+    <div class="bg" data-parallax="bg"></div>
+    <div class="veil"></div>
+    <div class="content">
+      <h2>Votre grand jour aussi scintillant que les étoiles au‑dessus du Manneken Pis</h2>
+    </div>
+  </div>
+
+  <!-- Limousines / Flotte -->
+  <section id="flotte" class="reveal">
+    <div class="container">
+      <h2 class="section-title">Voir la flotte VIP</h2>
+      <p class="section-sub">Limousines, Mercedes V‑Class, Sprinter VIP, voitures blindées et sportives, Maybach, Range Rover LWB, et plus.</p>
+
+      <div class="cards">
+        <article class="card span-6">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=1600&auto=format&fit=crop" alt="Mercedes V‑Class Premium Van">
+          </div>
+          <div class="card-body">
+            <span class="chip">Vans & Minibus</span>
+            <h3>Mercedes V‑Class / Sprinter VIP</h3>
+            <p>Parfait pour les groupes avec Wi‑Fi à bord, tables, éclairage lounge, et bagages.</p>
+          </div>
+        </article>
+
+        <article class="card span-6">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1600&auto=format&fit=crop" alt="Mercedes S‑Class Maybach">
+          </div>
+          <div class="card-body">
+            <span class="chip">Berlines</span>
+            <h3>Mercedes S‑Class / Maybach</h3>
+            <p>Le summum du confort pour mariages, transferts aéroport, délégations et événements officiels.</p>
+          </div>
+        </article>
+
+        <article class="card span-4">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1623691383069-cc2a0b91bafe?q=80&w=1600&auto=format&fit=crop" alt="Range Rover LWB">
+          </div>
+          <div class="card-body">
+            <span class="chip">SUV Luxe</span>
+            <h3>Range Rover LWB</h3>
+            <p>Présence imposante, confort exécutif, espace royal.</p>
+          </div>
+        </article>
+
+        <article class="card span-4">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1620723656289-5e48f282c275?q=80&w=1600&auto=format&fit=crop" alt="Voiture blindée">
+          </div>
+          <div class="card-body">
+            <span class="chip">Sécurité</span>
+            <h3>Blindées: S Guard, A8L Security</h3>
+            <p>Protection VR avec chauffeurs formés pour personnalités et VIP.</p>
+          </div>
+        </article>
+
+        <article class="card span-4">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=1600&auto=format&fit=crop" alt="Voitures de sport">
+          </div>
+          <div class="card-body">
+            <span class="chip">Emotion</span>
+            <h3>Voitures sportives</h3>
+            <p>Des sensations fortes et un style affirmé pour vos entrées.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mariage focus -->
+  <section id="mariage" class="reveal">
+    <div class="container">
+      <h2 class="section-title">Mariages à Bruxelles — Inspiration</h2>
+      <p class="section-sub">De l’Hôtel de Ville au Parc du Cinquantenaire, découvrez la splendeur de nos services lors des mariages récents.</p>
+
+      <div class="gallery" id="galerie">
+        <div class="g span-3"><img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1200&auto=format&fit=crop" alt="Grand-Place de Bruxelles"></div>
+        <div class="g span-5"><img src="https://images.unsplash.com/photo-1547636805-ffb06e85a8b5?q=80&w=1200&auto=format&fit=crop" alt="Parc du Cinquantenaire"></div>
+        <div class="g span-4"><img src="https://images.unsplash.com/photo-1504805572947-34fad45aed93?q=80&w=1200&auto=format&fit=crop" alt="Hôtel de Ville"></div>
+        <div class="g span-4"><img src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1200&auto=format&fit=crop" alt="Détails de mariage"></div>
+        <div class="g span-4"><img src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?q=80&w=1200&auto=format&fit=crop" alt="Intérieur limousine"></div>
+        <div class="g span-4"><img src="https://images.unsplash.com/photo-1554224155-1696413565d3?q=80&w=1200&auto=format&fit=crop" alt="Salle de réception"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Zones -->
+  <section id="zones" class="reveal">
+    <div class="container">
+      <h2 class="section-title">Depuis Bruxelles et grandes villes</h2>
+      <p class="section-sub">Bien que Bruxelles soit notre épicentre, nos services rayonnent à travers la Belgique : Mont des Arts, Place Royale, Anvers, Gand, Bruges… Une touche royale où que vous soyez.</p>
+
+      <div class="cards">
+        <article class="card span-6">
+          <div class="card-body">
+            <span class="chip">Bus & Minibus VIP</span>
+            <h3>Location Bus, minibus et vans</h3>
+            <p>Bruxelles • Anvers • Gand • Brugge</p>
+          </div>
+        </article>
+        <article class="card span-6">
+          <div class="card-body">
+            <span class="chip">Limousines</span>
+            <h3>Location limousine</h3>
+            <p>Bruxelles • Anvers • Gand • Bruges</p>
+          </div>
+        </article>
+        <article class="card span-6">
+          <div class="card-body">
+            <span class="chip">Voitures blindées et sport</span>
+            <h3>Mercedes S Guard VR10 • A8L Security • G63 AMG • S‑Class Maybach • Range Rover LWB</h3>
+            <p>Pour délégations officielles, personnalités, événements premium.</p>
+          </div>
+        </article>
+        <article class="card span-6">
+          <div class="card-body">
+            <span class="chip">Locations sur mesure</span>
+            <h3>Tomorrowland • Grand Prix F1 Spa • Délégations • Tourisme</h3>
+            <p>Programmes personnalisés, meet & greet, hospitalités, transferts aéroports.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Quote form -->
+  <section id="contact" class="reveal">
+    <div class="container">
+      <div class="cta" role="region" aria-labelledby="formTitle">
+        <div class="cta-left">
+          <div class="eyebrow">Votre mariage à Bruxelles</div>
+          <h3 id="formTitle">J’effectue ma demande de location de limousines</h3>
+          <p>Spécifiez pour commencer la date du mariage, puis indiquez le nombre de véhicules et les spécificités de vos trajets en commentaire.</p>
+          <ul class="list" style="margin-top:12px">
+            <li>Chauffeur professionnel • Service discret</li>
+            <li>Options cortège VIP • Décorations mariage</li>
+            <li>Wi‑Fi à bord sur demande • Eau & rafraîchissements</li>
+          </ul>
+        </div>
+        <div class="cta-right">
+          <form class="form" onsubmit="event.preventDefault(); submitForm();" aria-describedby="formHelp">
+            <div class="full">
+              <label for="date">Date du mariage *</label>
+              <input id="date" type="date" required>
+            </div>
+            <div>
+              <label for="pickup">Adresse de pickup *</label>
+              <input id="pickup" type="text" placeholder="Ex: Église Sainte‑Catherine" required>
+            </div>
+            <div>
+              <label for="passagers">Passagers</label>
+              <input id="passagers" type="number" min="1" placeholder="Ex: 6">
+            </div>
+            <div>
+              <label for="chauffeur">Chauffeur</label>
+              <select id="chauffeur">
+                <option value="oui">Avec chauffeur</option>
+                <option value="non">Sans chauffeur</option>
+              </select>
+            </div>
+            <div>
+              <label for="ville">Ville</label>
+              <select id="ville">
+                <option>Bruxelles</option>
+                <option>Anvers</option>
+                <option>Gand</option>
+                <option>Bruges</option>
+                <option>Autre</option>
+              </select>
+            </div>
+            <div class="full">
+              <label for="comment">Commentaires (nombre de véhicules, trajets, horaires…)</label>
+              <textarea id="comment" rows="4"></textarea>
+            </div>
+            <div class="full">
+              <button class="btn" type="submit">Demander un devis</button>
+              <div id="formHelp" style="font-size:12px; color:var(--muted); margin-top:6px">Nous répondons généralement en moins de 2 heures.</div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="fcol span-4">
+        <div class="logo" style="margin-bottom:10px">
+          <span class="mark"></span>
+          <span>BELGIUM LIMOUSINE SERVICES</span>
+        </div>
+        <p style="color:var(--muted)">Créée en 1986 par Mr Abrighach, plus de 30 ans d’excellence dans la location de véhicules de luxe avec chauffeur en Belgique et à l’international.</p>
+        <div class="social">
+          <a href="#" aria-label="Facebook">Facebook</a>
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="WhatsApp">Whatsapp</a>
+          <a href="#" aria-label="LinkedIn">Linkedin</a>
+        </div>
+      </div>
+      <div class="fcol span-3">
+        <h4>Location véhicules de luxe</h4>
+        <div class="list">
+          <a href="#services">Bus, minibus et vans</a>
+          <a href="#limousines">Voitures noires avec chauffeur</a>
+          <a href="#flotte">Voitures de sport</a>
+          <a href="#mariage">Voitures de mariage</a>
+        </div>
+      </div>
+      <div class="fcol span-3">
+        <h4>Infos et réservation</h4>
+        <div class="list">
+          <a href="tel:+3223194557">02 319 45 57</a>
+          <a href="mailto:info@belgiumlimousineservices.be">info@belgiumlimousineservices.be</a>
+          <a href="#contact">Formulaire de contact</a>
+          <a href="#contact">Demande de devis</a>
+        </div>
+      </div>
+      <div class="fcol span-3">
+        <h4>Zones & Services</h4>
+        <div class="list">
+          <a href="#zones">Bruxelles, Anvers, Gand, Bruges</a>
+          <a href="#zones">Tomorrowland</a>
+          <a href="#zones">Grand Prix de F1 de Spa</a>
+          <a href="#zones">Délégations officielles</a>
+          <a href="#zones">Tourisme</a>
+        </div>
+      </div>
+    </div>
+    <div class="container foot-small">
+      <span>Droits réservés Ⓒ Belgium Limousine Services</span>
+      <span>Agence web OpenGraphy</span>
+    </div>
+  </footer>
+
+  <!-- Sticky CTA -->
+  <a class="sticky-cta" href="#contact" aria-label="Demander un devis">
+    Demander un devis
+  </a>
+
+  <!-- Cookie banner -->
+  <div class="cookie" id="cookie">
+    <p>Nous utilisons des cookies sur notre site web pour vous offrir l'expérience la plus pertinente en mémorisant vos préférences et vos visites répétées. Les cookies sont également utilisés pour la personnalisation des publicités.</p>
+    <div class="actions">
+      <button class="btn secondary" onclick="setCookies(false)">Refuser</button>
+      <button class="btn" onclick="setCookies(true)">Accepter</button>
+    </div>
+  </div>
+
+  <script>
+    // Parallax: hero layers based on mouse + scroll
+    (function(){
+      const layers = document.querySelectorAll('.hero .layer');
+      const dividerBg = document.querySelector('[data-parallax="bg"]');
+
+      let mouse = {x:0, y:0};
+      window.addEventListener('mousemove', (e)=>{
+        mouse.x = (e.clientX / window.innerWidth) - .5;
+        mouse.y = (e.clientY / window.innerHeight) - .5;
+      });
+
+      function raf(){
+        layers.forEach(el=>{
+          const d = parseFloat(el.dataset.depth || 0.1);
+          const tx = mouse.x * 30 * d;
+          const ty = (window.scrollY * d * .4) + mouse.y * 30 * d;
+          el.style.transform = `translate3d(${tx}px, ${ty}px, 0) scale(1.05)`;
+        });
+        if(dividerBg){
+          const s = window.scrollY;
+          dividerBg.style.transform = `translateY(${-(s*0.08)}px) scale(1.08)`;
+        }
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+    })();
+
+    // Intersection Observer for reveals
+    (function(){
+      const observer = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            entry.target.classList.add('appear');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.reveal, .card, .gallery .g').forEach(el=> observer.observe(el));
+    })();
+
+    // Simple form handling (demo)
+    function submitForm(){
+      const date = document.getElementById('date').value;
+      const pickup = document.getElementById('pickup').value;
+      if(!date || !pickup){ alert('Veuillez renseigner la date et l’adresse de pickup.'); return; }
+      alert('Merci ! Nous vous recontactons rapidement avec votre devis.');
+      // TODO: send to backend via fetch('/api/quote', { method:'POST', body: JSON.stringify({...}) })
+    }
+
+    // Cookie banner logic
+    const cookieKey = 'bls-cookie-consent-v1';
+    function setCookies(accepted){
+      localStorage.setItem(cookieKey, accepted ? 'accepted' : 'declined');
+      document.getElementById('cookie').style.display = 'none';
+    }
+    (function(){
+      const v = localStorage.getItem(cookieKey);
+      if(!v){
+        setTimeout(()=>{ document.getElementById('cookie').style.display = 'flex'; }, 600);
+      }
+    })();
+  </script>
+</body>
+</html>
